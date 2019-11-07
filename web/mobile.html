@@ -126,10 +126,8 @@
 
 <script>
 	var channelCode = null;
-	var rootUrl = null;
 	$(function(){
 		channelCode = GetQueryString("channelCode");
-		rootUrl = window.location.replace("index.html","");
 		if(channelCode == null){
 			alert("来源非法");
 			return;
@@ -144,9 +142,9 @@
 	
 	function downloadApp(os){
 		if(os == "windows"){
-			window.open(rootUrl + "/app/vpn_windows_1.0.0_" + channelCode + ".zip");
+			window.open("/app/vpn_windows_1.0.0_" + channelCode + ".zip");
 		} else if (os == "mac"){
-			window.open(rootUrl + "/app/vpn_mac_1.0.0_" + channelCode + ".zip");
+			window.open("/app/vpn_mac_1.0.0_" + channelCode + ".zip");
 		} else if (os == "android" || os == "ios"){
 			window.open("../index.html?channelCode=" + channelCode);
 		} else {
