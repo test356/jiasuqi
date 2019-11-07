@@ -174,11 +174,10 @@
 	}
 	
 	function downloadApp(os){
-		alert("channelCode = " + channelCode);
 		if(os == "windows"){
-			window.location.href = "app/vpn_windows_1.0.0_" + channelCode + ".zip";
+			window.open("app/vpn_windows_1.0.0_" + channelCode + ".zip");
 		} else if(os == "mac"){
-			window.location.href = "app/vpn_mac_1.0.0_" + channelCode + ".zip";
+			window.open("app/vpn_mac_1.0.0_" + channelCode + ".zip");
 		} else {
 			alert("暂不支持该系统，敬请期待");
 		}
