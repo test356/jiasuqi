@@ -141,7 +141,9 @@
 
 <script>
 	var channelCode = null;
+	var rootUrl = null;
     window.onload = function() {
+		rootUrl = window.location.replace("index.html","");
 		channelCode = GetQueryString("channelCode");
 		if(channelCode == null){
 			alert("来源非法");
@@ -186,16 +188,16 @@
 	
 	function downloadApp(os){
 		if(os == "windows"){
-			window.open("app/vpn_windows_1.0.0_" + channelCode + ".zip");
+			window.open(rootUrl + "app/vpn_windows_1.0.0_" + channelCode + ".zip");
 		} else if (os == "mac"){
-			window.open("app/vpn_mac_1.0.0_" + channelCode + ".zip");
+			window.open(rootUrl + "app/vpn_mac_1.0.0_" + channelCode + ".zip");
 		} else {
 			alert("暂不支持该系统，敬请期待");
 		}
 	}
 	
 	function buildQrcode(id){
-		var qrcode = jQuery("#" + id).qrcode("index_m.html?channelCode="+channelCode);
+		var qrcode = jQuery("#" + id).qrcode(rootUrl + "/index_m.html?channelCode="+channelCode);
 		var canvas = qrcode.find('canvas').get(0);
 		$("#" + id + " img").attr("src", canvas.toDataURL('image/jpg')).show();
 		$("#" + id + " canvas").remove();
