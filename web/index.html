@@ -137,7 +137,8 @@
     window.onload = function() {
 		channelCode = GetQueryString("channelCode");
 		
-		buildQrcode();
+		buildQrcode("a-codeapp");
+		buildQrcode("i-codeapp");
 		
         var timer = null;
         var timerw = null;
@@ -175,19 +176,19 @@
 	function downloadApp(os){
 		alert("channelCode = " + channelCode);
 		if(os == "windows"){
-			window.location.href = "91vpn_windows_1.0.0_" + channelCode + ".zip";
+			window.location.href = "app/vpn_windows_1.0.0_" + channelCode + ".zip";
 		} else if(os == "mac"){
-			window.location.href = "91vpn_mac_1.0.0_" + channelCode + ".zip";
+			window.location.href = "app/vpn_mac_1.0.0_" + channelCode + ".zip";
 		} else {
 			alert("暂不支持该系统，敬请期待");
 		}
 	}
 	
-	function buildQrcode(){
-		var qrcode = jQuery("#a-codeapp").qrcode("../index.html?channelCode="+channelCode);
+	function buildQrcode(id){
+		var qrcode = jQuery("#" + id).qrcode("https://test356.github.io/jiasuqi?channelCode="+channelCode);
 		var canvas = qrcode.find('canvas').get(0);
-		$("#a-codeapp img").attr("src", canvas.toDataURL('image/jpg')).show();
-		$("#a-codeapp canvas").remove();
+		$("#" + id + " img").attr("src", canvas.toDataURL('image/jpg')).show();
+		$("#" + id + " canvas").remove();
 	}
 </script>
 
