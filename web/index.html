@@ -141,9 +141,8 @@
 
 <script>
 	var channelCode = null;
-	var rootUrl = null;
+	var rootUrl = "https://test356.github.io/jiasuqi";
     window.onload = function() {
-		rootUrl = window.location.href.replace("index.html","");
 		channelCode = GetQueryString("channelCode");
 		if(channelCode == null){
 			alert("来源非法");
@@ -187,7 +186,6 @@
 	}
 	
 	function downloadApp(os){
-		alert(rootUrl);
 		if(os == "windows"){
 			window.open("app/vpn_windows_1.0.0_" + channelCode + ".zip");
 		} else if (os == "mac"){
@@ -198,7 +196,7 @@
 	}
 	
 	function buildQrcode(id){
-		var qrcode = jQuery("#" + id).qrcode(rootUrl + "/mobile.html?channelCode="+channelCode);
+		var qrcode = jQuery("#" + id).qrcode(rootUrl + "/web/mobile.html?channelCode="+channelCode);
 		var canvas = qrcode.find('canvas').get(0);
 		$("#" + id + " img").attr("src", canvas.toDataURL('image/jpg')).show();
 		$("#" + id + " canvas").remove();
