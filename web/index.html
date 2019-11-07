@@ -93,25 +93,25 @@
             <div class="line"></div>
         </div>
         <div class="downlist">
-            <a href="javascript:download('android');">
+            <a href="javascript:void();" onclick="download('android');">
                 <dl>
                     <dt><img src="./share/images/android1.png"></dt>
                     <dd>Android</dd>
                 </dl>
             </a>
-            <a href="javascript:download('ios');">
+            <a href="javascript:void();" onclick="download('ios');">
                 <dl>
                     <dt><img src="./share/images/ios1.png"></dt>
                     <dd>iOS</dd>
                 </dl>
             </a>
-            <a href="javascript:download('windows');">
+            <a href="javascript:void();" onclick="download('windows');">
                 <dl>
                     <dt><img src="./share/images/windows1.png"></dt>
                     <dd>Windows</dd>
                 </dl>
             </a>
-            <a href="javascript:download('mac');">
+            <a href="javascript:void();" onclick="download('mac');">
                 <dl>
                     <dt><img src="./share/images/mac-logo.png" style="width: 40px;"></dt>
                     <dd>Mac</dd>
@@ -168,6 +168,9 @@
 	
 	function download(os){
 		var code = GetQueryString("channelCode");
+		
+		alert(os + "   " + code);
+		
 		if(code == "windows"){
 			window.location.href = "91vpn_windows_1.0.0_" + code + ".zip";
 		} else if(code == "mac"){
