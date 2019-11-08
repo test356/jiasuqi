@@ -32,8 +32,8 @@
 </div>
 <div class="bg-btn">
     <ul>
-        <li class="adr"><a href="javascript:;" onclick="downloadApp('android');">Android下载</a></li>
-        <li class="ios"><a href="javascript:;" onclick="downloadApp('ios');">iOS下载</a></li>
+        <li class="adr"><a href="javascript:;" id="android_downloadButton">Android下载</a></li>
+        <li class="ios"><a href="javascript:;" id="iOS_downloadButton">iOS下载</a></li>
         <li class="win"><a href="javascript:;" onclick="downloadApp('windows');">Windows下载</a></li>
         <li class="mac"><a href="javascript:;" onclick="downloadApp('mac');">Mac下载</a></li>
     </ul>
@@ -119,7 +119,7 @@
 </div>
 
 
-<a class="kefu" href="" target="view_window">
+<a class="kefu" style="display: none;" href="" target="view_window">
     <i></i>
     <div>咨询客服</div>
 </a>
@@ -145,13 +145,71 @@
 			window.open("/app/vpn_windows_1.0.0_" + channelCode + ".zip");
 		} else if (os == "mac"){
 			window.open("/app/vpn_mac_1.0.0_" + channelCode + ".zip");
-		} else if (os == "android" || os == "ios"){
-			window.open("../index.html?channelCode=" + channelCode);
-		} else {
-			alert("暂不支持该系统，敬请期待");
 		}
 	}
 </script>
+<script src="https://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+<script
+        src="https://apps.bdimg.com/libs/bootstrap/3.3.4/js/bootstrap.min.js"></script>
 
+<script type="text/javascript">
+    //iOS Web APP中点击链接跳转到Safari 浏览器新标签页的问题 devework.com
+    //stanislav.it/how-to-prevent-ios-standalone-mode-web-apps-from-opening-links-in-safari
+    if(("standalone" in window.navigator) && window.navigator.standalone){
+        var noddy, remotes = false;
+        document.addEventListener('click', function(event) {
+            noddy = event.target;
+            while(noddy.nodeName !== "A" && noddy.nodeName !== "HTML") {
+                noddy = noddy.parentNode;
+            }
+            if('href' in noddy && noddy.href.indexOf('http') !== -1 && (noddy.href.indexOf(document.location.host) !== -1 || remotes))
+            {
+                event.preventDefault();
+                document.location.href = noddy.href;
+            }
+        },false);
+    }
+</script>
+<!-- 以下为openinstall集成代码，建议在html文档中尽量靠前放置，加快初始化过程 -->
+<!-- 强烈建议直接引用下面的cdn加速链接，以得到最及时的更新，我们将持续跟踪各种主流浏览器的变化，提供最好的服务；不推荐将此js文件下载到自己的服务器-->
+<script type="text/javascript" charset="UTF-8" src="//res.cdn.openinstall.io/openinstall.js"></script>
+<script type="text/javascript">
+    //openinstall初始化时将与openinstall服务器交互，应尽可能早的调用
+    /*web页面向app传递的json数据(json string/js Object)，应用被拉起或是首次安装时，通过相应的android/ios api可以获取此数据*/
+    var data = OpenInstall.parseUrlParams();//openinstall.js中提供的工具函数，解析url中的所有查询参数
+    new OpenInstall({
+        /*appKey必选参数，openinstall平台为每个应用分配的ID*/
+        appKey : "xs3i9p",
+        /*可选参数，自定义android平台的apk下载文件名；个别andriod浏览器下载时，中文文件名显示乱码，请慎用中文文件名！*/
+        //apkFileName : 'com.fm.openinstalldemo-v2.2.0.apk',
+        /*可选参数，是否优先考虑拉起app，以牺牲下载体验为代价*/
+        //preferWakeup:true,
+        /*自定义遮罩的html*/
+        //mask:function(){
+        //  return "<div id='openinstall_shadow' style='position:fixed;left:0;top:0;background:rgba(0,255,0,0.5);filter:alpha(opacity=50);width:100%;height:100%;z-index:10000;'></div>"
+        //},
+        /*openinstall初始化完成的回调函数，可选*/
+        onready : function() {
+            var m = this, 
+			button1 = document.getElementById("iOS_downloadButton"), 
+			button2 = document.getElementById("android_downloadButton");
+			
+            button1.style.visibility = "visible";
+			button2.style.visibility = "visible";
+ 
+            /*用户点击某个按钮时(假定按钮id为downloadButton)，安装app*/
+            button1.onclick = function() {
+                m.install();
+                return false;
+            }
+			
+			button2.onclick = function() {
+                m.install();
+                return false;
+            }
+        }
+    }, data);
+
+</script>
 </body>
 </html>

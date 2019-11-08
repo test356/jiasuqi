@@ -133,7 +133,7 @@
 	推广合作邮箱：test@feeker.net
 </div>
 
-    <a class="kefu" href="" target="view_window">
+    <a class="kefu" style="display: none;" href="" target="view_window">
         <i></i>
         <div>咨询客服</div>
     </a>
@@ -142,10 +142,17 @@
 <script>
 	var channelCode = null;
 	var rootUrl = "https://test356.github.io/jiasuqi";
+	var ua = navigator.userAgent;
+	
     window.onload = function() {
 		channelCode = GetQueryString("channelCode");
 		if(channelCode == null){
 			alert("来源非法");
+			return;
+		}
+		
+		if(IsPC() == false){
+			window.location.href = "/web/mobile.html?channelCode=" + channelCode;
 			return;
 		}
 		
@@ -200,6 +207,16 @@
 		var canvas = qrcode.find('canvas').get(0);
 		$("#" + id + " img").attr("src", canvas.toDataURL('image/jpg')).show();
 		$("#" + id + " canvas").remove();
+	}
+	
+	function IsPC(){
+		var userAgentInfo = navigator.userAgent;
+		var Agents = new Array("Android", "iPhone", "SymbianOS", "Windows Phone", "iPad", "iPod");
+		var flag = true;
+		for (var v = 0; v < Agents.length; v++) {
+			if (userAgentInfo.indexOf(Agents[v]) > 0) { flag = false; break; }
+		}
+		return flag;
 	}
 </script>
 
