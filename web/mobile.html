@@ -119,7 +119,7 @@
 </div>
 
 
-<a class="kefu" style="display: none;" href="" target="view_window">
+<a class="kefu" href="javascript:;" onclick="kefu();" target="view_window">
     <i></i>
     <div>咨询客服</div>
 </a>
@@ -146,6 +146,10 @@
 		} else if (os == "mac"){
 			window.open("/app/vpn_mac_1.0.0_" + channelCode + ".zip");
 		}
+	}
+	
+	function kefu(){
+		window.open("../index.html?channelCode" + channelCode);
 	}
 </script>
 <script src="https://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
