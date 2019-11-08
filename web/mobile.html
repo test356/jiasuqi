@@ -177,6 +177,7 @@
     //openinstall初始化时将与openinstall服务器交互，应尽可能早的调用
     /*web页面向app传递的json数据(json string/js Object)，应用被拉起或是首次安装时，通过相应的android/ios api可以获取此数据*/
     var data = OpenInstall.parseUrlParams();//openinstall.js中提供的工具函数，解析url中的所有查询参数
+	console.log(data);
     new OpenInstall({
         /*appKey必选参数，openinstall平台为每个应用分配的ID*/
         appKey : "xs3i9p",
@@ -199,11 +200,13 @@
  
             /*用户点击某个按钮时(假定按钮id为downloadButton)，安装app*/
             button1.onclick = function() {
+				console.log("button1.onclick");
                 m.install();
                 return false;
             }
 			
 			button2.onclick = function() {
+				console.log("button2.onclick");
                 m.install();
                 return false;
             }

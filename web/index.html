@@ -141,7 +141,7 @@
 
 <script>
 	var channelCode = null;
-	var rootUrl = "https://test356.github.io/jiasuqi";
+	var rootUrl = "http://127.0.0.1/jiasuqi";
 	var ua = navigator.userAgent;
 	
     window.onload = function() {
@@ -152,7 +152,7 @@
 		}
 		
 		if(IsPC() == false){
-			window.location.href = "/web/mobile.html?channelCode=" + channelCode;
+			window.location.href = rootUrl + "/web/mobile.html?channelCode=" + channelCode;
 			return;
 		}
 		
