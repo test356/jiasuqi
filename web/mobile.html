@@ -132,6 +132,11 @@
 			alert("来源非法");
 			return;
 		}
+		
+		if(IsPC()){
+			window.location.href = rootUrl + "/web/index.html?channelCode=" + channelCode;
+			return;
+		}
 	})
 		
 	function GetQueryString(name) {
@@ -150,6 +155,16 @@
 	
 	function kefu(){
 		window.open("../index.html?channelCode" + channelCode);
+	}
+	
+	function IsPC(){
+		var userAgentInfo = navigator.userAgent;
+		var Agents = new Array("Android", "iPhone", "SymbianOS", "Windows Phone", "iPad", "iPod");
+		var flag = true;
+		for (var v = 0; v < Agents.length; v++) {
+			if (userAgentInfo.indexOf(Agents[v]) > 0) { flag = false; break; }
+		}
+		return flag;
 	}
 </script>
 <script src="https://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
