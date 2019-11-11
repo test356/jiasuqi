@@ -1,0 +1,1 @@
+var rootUrl = "https://test356.github.io/jiasuqi";
