@@ -148,8 +148,7 @@
     window.onload = function() {
 		channelCode = GetQueryString("channelCode");
 		if(channelCode == null){
-			alert("来源非法");
-			return;
+			channelCode = "0";
 		}
 		
 		if(IsPC() == false){
