@@ -141,18 +141,18 @@
 
 
 <script>
-	var channelCode = null;
+	var qdid = null;
 	
 	var ua = navigator.userAgent;
 	
     window.onload = function() {
-		channelCode = GetQueryString("channelCode");
-		if(channelCode == null){
-			channelCode = "0";
+		qdid = GetQueryString("qdid");
+		if(qdid == null){
+			qdid = "0";
 		}
 		
 		if(IsPC() == false){
-			window.location.href = rootUrl + "/web/mobile.html?channelCode=" + channelCode;
+			window.location.href = rootUrl + "/web/mobile.html?qdid=" + qdid;
 			return;
 		}
 		
@@ -194,16 +194,16 @@
 	
 	function downloadApp(os){
 		if(os == "windows"){
-			window.open("app/vpn_windows_1.0.0_" + channelCode + ".zip");
+			window.open("app/vpn_windows_1.0.0_" + qdid + ".zip");
 		} else if (os == "mac"){
-			window.open("app/vpn_mac_1.0.0_" + channelCode + ".zip");
+			window.open("app/vpn_mac_1.0.0_" + qdid + ".zip");
 		} else {
 			alert("暂不支持该系统，敬请期待");
 		}
 	}
 	
 	function buildQrcode(id){
-		var qrcode = jQuery("#" + id).qrcode(rootUrl + "/web/mobile.html?channelCode="+channelCode);
+		var qrcode = jQuery("#" + id).qrcode(rootUrl + "/web/mobile.html?qdid="+qdid);
 		var canvas = qrcode.find('canvas').get(0);
 		$("#" + id + " img").attr("src", canvas.toDataURL('image/jpg')).show();
 		$("#" + id + " canvas").remove();

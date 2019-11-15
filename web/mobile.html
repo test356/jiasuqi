@@ -126,15 +126,15 @@
 </a>
 
 <script>
-	var channelCode = null;
+	var qdid = null;
 	$(function(){
-		channelCode = GetQueryString("channelCode");
-		if(channelCode == null){
-			channelCode = "0";
+		qdid = GetQueryString("qdid");
+		if(qdid == null){
+			qdid = "0";
 		}
 		
 		if(IsPC()){
-			window.location.href = rootUrl + "/web/index.html?channelCode=" + channelCode;
+			window.location.href = rootUrl + "/web/index.html?qdid=" + qdid;
 			return;
 		}
 	})
@@ -147,14 +147,14 @@
 	
 	function downloadApp(os){
 		if(os == "windows"){
-			window.open("/app/vpn_windows_1.0.0_" + channelCode + ".zip");
+			window.open("/app/vpn_windows_1.0.0_" + qdid + ".zip");
 		} else if (os == "mac"){
-			window.open("/app/vpn_mac_1.0.0_" + channelCode + ".zip");
+			window.open("/app/vpn_mac_1.0.0_" + qdid + ".zip");
 		}
 	}
 	
 	function kefu(){
-		window.open("../index.html?channelCode" + channelCode);
+		window.open("../index.html?qdid" + qdid);
 	}
 	
 	function IsPC(){
