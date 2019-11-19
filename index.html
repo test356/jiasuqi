@@ -74,7 +74,7 @@
             <a href="#">852-59398639</a>
             <p>您的专属potato客服</p>
         </div>
-        <a  href="javascript:void(0);" onclick="jump();" class="btn btn-primary">添加客服</a>
+        <a href="javascript:void(0);" onclick="jump();" class="btn btn-primary">添加客服</a>
     </div>
 </div>
 <div class="panel panel-default">
@@ -89,7 +89,7 @@
     </div>
 </div>
 
-<p style="color: red;">为了更好为您提供稳定的服务，请将本页面添加到手机的主屏幕，并一直保留。</p>
+<p style="color: red;">为了更好为您提供稳定的服务，苹果手机用户请将本页面添加到手机的主屏幕，并一直保留。</p>
 
 <div class="panel panel-default">
     <div class="panel-body">
@@ -101,6 +101,32 @@
 <script src="https://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
 <script src="https://apps.bdimg.com/libs/bootstrap/3.3.4/js/bootstrap.min.js"></script>
 <script>
+function GetMobelType(){                
+    var  browser  =   {                    
+        versions:   function()  {                        
+            var  u  =  window.navigator.userAgent;                        
+            return  {                            
+                trident:  u.indexOf('Trident')  >  -1, //IE内核
+                presto:  u.indexOf('Presto')  >  -1, //opera内核
+                Alipay:  u.indexOf('Alipay')  >  -1, //支付宝
+                webKit:  u.indexOf('AppleWebKit')  >  -1, //苹果、谷歌内核
+                gecko:  u.indexOf('Gecko')  >  -1  &&  u.indexOf('KHTML')  ==  -1, //火狐内核
+                mobile:  !!u.match(/AppleWebKit.*Mobile.*/), //是否为移动终端
+                ios:  !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/), //ios终端
+                android:  u.indexOf('Android')  >  -1  ||  u.indexOf('Linux')  >  -1, //android终端或者uc浏览器
+                iPhone:  u.indexOf('iPhone')  >  -1  ||  u.indexOf('Mac')  >  -1, //是否为iPhone或者安卓QQ浏览器
+                //iPhone: u.match(/iphone|ipod|ipad/),//
+                iPad:  u.indexOf('iPad')  >  -1, //是否为iPad
+                webApp:  u.indexOf('Safari')  ==  -1, //是否为web应用程序，没有头部与底部
+                weixin:  u.indexOf('MicroMessenger')  >  -1, //是否为微信浏览器
+                qq: u.match(/\sQQ/i) !== null, //是否QQ
+                Safari:  u.indexOf('Safari')  >  -1,
+                  ///Safari浏览器,
+            };                    
+        }()                
+    };                
+    return browser.versions;            
+}
 function jump() { 
     var timeout = 2300, timer = null;
     if(GetMobelType.weixin) {
