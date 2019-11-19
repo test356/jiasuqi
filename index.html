@@ -136,7 +136,7 @@ function jump() {
         var startTime = Date.now();
         if(GetMobelType().android) {
             var ifr = document.createElement('iframe');
-            ifr.src = "pt://resolve?domain=nutsvpn";//这里是唤起App的协议，有Android可爱的同事提供
+            ifr.src = "pt://resolve?domain=p91vpn";//这里是唤起App的协议，有Android可爱的同事提供
             ifr.style.display = 'none';
             document.body.appendChild(ifr);
             timer = setTimeout(function() {
@@ -152,7 +152,7 @@ function jump() {
                 //$("#bgCoverOPen").show(); //提示在浏览器打开的蒙板
 				alert("请在手机浏览器中打开");
             } else {
-                window.location.href = "pt://resolve?domain=nutsvpn"; //唤起协议，由iOS小哥哥提供
+                window.location.href = "pt://resolve?domain=p91vpn"; //唤起协议，由iOS小哥哥提供
                 timer = setTimeout(function() {
                     window.location.href = "https://apps.apple.com/cn/app/potato-chat/id1204726898";
                 }, timeout);
