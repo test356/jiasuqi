@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>常用应用</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width,height=device-height,inital-scale=1.0,maximum-scale=1.0,user-scalable=no;" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<meta name="format-detection" content="telephone=no" />
+<meta charset="utf-8" />
+<link  type="text/css" href="https://www.bootcss.com/p/layoutit/css/bootstrap-combined.min.css" rel="stylesheet">
+<style type="text/css">
+    html, body { color:#222; font-family:Microsoft YaHei, Helvitica, Verdana, Tohoma, Arial, san-serif; margin:0; padding: 10; text-decoration: none; }
+    img { border:0; }
+    ul { list-style: none outside none; margin:0; padding: 0; }
+
+	body { padding: 0 10px 10px 10px; }
+
+    body .mainmenu:after { clear: both; content: " "; display: block; }
+ 
+    body .mainmenu li{ 
+        float:left;
+        margin-left: 2.5%;
+        margin-top: 2.5%;
+        width: 30%;  
+        border-radius:3px; 
+        overflow:hidden;
+    }
+ 
+    body .mainmenu li a{ display:block;  color:#FFF;   text-align:center }
+    body .mainmenu li a b{ 
+        display:block; height:80px;
+    }
+    body .mainmenu li a img{ 
+        margin: 15px auto 15px;
+        width: 50px;
+        height: 50px;
+    }
+ 
+    body .mainmenu li a span{ display:block; height:30px; line-height:30px;background-color:#FFF; color: #999; font-size:14px; }
+	
+	label-length { width: 100px;}
+</style>
+</head>
+ 
+<body>
+<br/>
+<div class="container-fluid ios hide">
+	<div class="row-fluid">
+		<div class="span12">
+			<div class="alert">
+				<button type="button" class="close" data-dismiss="alert">×</button>
+				苹果用户请先 <button class="btn btn-warning btn-mini" onclick="getAppleId();">获取美区AppleID</button> ，然后在<font color="red">iTunes Store 与 App Store</font>中登录该AppleID账号，最后去App Store下载应用. 
+			</div>
+			<div id="apple_account" class="span12 hide">
+				<form class="form-search">
+					<div class="control-group">
+						<input id="apple_id" class="control-label" type="text" readonly /> <button id="cp_apple_id" type="button" class="btn">复制AppleID</button>
+					</div>
+					<div class="control-group">
+						<input id="apple_pwd" class="control-label" type="text" readonly /> <button id="cp_apple_pwd" type="button" class="btn">复制密码</button>
+					</div>
+					<span class="help-block" contenteditable="true" style="color:green;"></span>
+				</form>
+			</div>
+		</div>
+	</div>
+	<hr>
+</div>
+<div>
+	<ul class="mainmenu">
+		<li><a href="https://apps.apple.com/us/app/facebook/id284882215"><b><img src="images/facebook.png" /></b><span>Facebook</span></a></li>
+		<li><a href="https://apps.apple.com/us/app/twitter/id333903271"><b><img src="images/Twitter.png" /></b><span>Twitter</span></a></li>
+		<li><a href="https://apps.apple.com/us/app/youtube-watch-listen-stream/id544007664"><b><img src="images/YouTuBe.png" /></b><span>YouTuBe</span></a></li>
+		<li><a href="https://apps.apple.com/us/app/gmail-email-by-google/id422689480"><b><img src="images/Gmail.png" /></b><span>Gmail</span></a></li>
+		<li><a href="https://apps.apple.com/us/app/instagram/id389801252"><b><img src="images/Instagram.png" /></b><span>Instagram</span></a></li>
+		<li><a href="https://apps.apple.com/us/app/whatsapp-messenger/id310633997"><b><img src="images/WhatsApp.png" /></b><span>WhatsApp</span></a></li>
+		<li><a href="https://apps.apple.com/us/app/netflix/id363590051"><b><img src="images/Netflix.png" /></b><span>Netflix</span></a></li>
+		<li><a href="https://apps.apple.com/us/app/pubg-mobile/id1330123889"><b><img src="images/Pubgmobile.png" /></b><span>Pubgmobile</span></a></li>
+		<li><a href="https://apps.apple.com/us/app/huobi-app/id1023263342"><b><img src="images/HuobiApp.png" /></b><span>HuobiApp</span></a></li>    		
+	</ul>
+</div>
+<script src="https://cdn.bootcss.com/jquery/1.7.2/jquery.min.js"></script>
+<script src="https://www.bootcss.com/p/layoutit/js/bootstrap.min.js"></script>
+<script>
+
+$(function(){
+	var u = navigator.userAgent, app = navigator.appVersion; 
+	var isAndroid = u.indexOf('Android') > -1 || u.indexOf('Linux') > -1; //android终端或者uc浏览器 
+	var isiOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/); //ios终端 
+	if(isiOS){
+		$(".ios").removeClass("hide");
+		$("#cp_apple_id").click(function(){
+			copyTXT("apple_id");
+			
+		});
+		$("#cp_apple_pwd").click(function(){
+			copyTXT("apple_pwd");
+		});
+	}
+	if(isAndroid){
+		$("a").click(function(){
+			alert("敬请期待");
+			return false;
+		});
+	}
+});
+function getAppleId(){
+	$.getJSON("appleid.json",function(data){
+		var item = Math.floor(Math.random() * data.length);
+		var field = data[item];
+		$("#apple_id").val(field.apple_id);
+		$("#apple_pwd").val(field.apple_pwd);
+		$("#apple_account").removeClass("hide");
+	});
+}
+function copyTXT(id){
+    var copyDOM = document.querySelector('#' + id); //指定的DOM元素
+    var range = document.createRange(); // 创建容器
+    range.selectNode(copyDOM); // 选中需要复制的节点
+    window.getSelection().addRange(range); // 执行选中元素
+    var successful = document.execCommand('copy');// 执行 copy 操作
+    try {
+        var msg = successful ? 'successful' : 'unsuccessful';
+        console.log('Copy was ' + msg);
+		if(id == "apple_id"){
+			$(".help-block").html("AppleID复制成功");
+		} else if(id == "apple_pwd"){
+			$(".help-block").html("密码复制成功");
+		}
+    } catch(err) {
+        console.log('unable to copy');
+    }
+    window.getSelection().removeAllRanges(); // 移除选中的元素
+}
+</script>
+</body>
+</html>

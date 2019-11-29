@@ -1,0 +1,530 @@
+
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        ody,
+        div,
+        dl,
+        dt,
+        dd,
+        ul,
+        ol,
+        li,
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6,
+        pre,
+        form,
+        fieldset,
+        input,
+        textarea,
+        p,
+        blockquote,
+        th,
+        td {
+            margin: 0;
+            padding: 0;
+            outline: none
+        }
+        
+        ul,
+        li,
+        dl,
+        dd,
+        dt {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        
+        img {
+            border: 0;
+        }
+        
+        a {
+            color: #333;
+            text-decoration: none;
+        }
+        
+        a:hover {
+            color: #f60;
+        }
+        
+        em,
+        i,
+        u,
+        s,
+        b,
+        strong {
+            font-style: normal;
+            font-weight: normal;
+            text-decoration: none;
+        }
+        
+        .clearfix:before,
+        .clearfix:after {
+            content: ".";
+            display: block;
+            height: 0;
+            visibility: hidden;
+            font-size: 0;
+        }
+        
+        .clearfix:after {
+            clear: both;
+        }
+        
+        .clearfix {
+            *zoom: 1;
+        }
+        /* IE < 8 */
+        
+        .dtop {
+            background: #000;
+            height: 40px;
+        }
+        
+        .img-list {
+            display: block;
+            position: relative;
+            width: 1920px;
+            height: 338px;
+            overflow: hidden;
+            margin-left: 7px;
+        }
+        
+        .img-list s {
+            display: block;
+            width: 9999px;
+        }
+        
+        .img-list s i {
+            display: block;
+            float: left;
+            display: inline;
+            width: 186px;
+            height: 320px;
+            overflow: hidden;
+            position: relative;
+            margin: 9px 5px;
+            display: inline;
+        }
+        
+        .banner i a,
+        .banner img {
+            width: 186px;
+            height: 320px;
+        }
+        
+        .banner i strong {
+            width: 96%;
+            height: 60px;
+            background: #59C46C;
+            font-weight: lighter;
+            line-height: 60px;
+            text-align: center;
+            color: white;
+            padding: 0 2%;
+        }
+        
+        .banner i em {
+            width: 90%;
+            height: 170px;
+            padding: 8px 5% 0 5%;
+            line-height: 24px;
+            color: #8D8D8D;
+            text-align: justify;
+            overflow: hidden;
+        }
+        
+        .banner i a {
+            position: absolute;
+            left: 0;
+            background: #fff;
+        }
+        
+        .banner i a:hover {
+            color: #333;
+            text-decoration: none;
+        }
+        
+        .banner i a font {
+            text-align: center;
+            color: #59C46C;
+            font-size: 12px;
+        }
+        
+        .tab_box {
+            margin: 18px 0 12px 0;
+        }
+        
+        .tab_box b {
+            display: block;
+            width: 40px;
+            float: left;
+            font-size: 16px;
+            padding-top: 5px;
+        }
+        
+        .tab_box ul {
+            height: 49px;
+            overflow: hidden;
+        }
+        
+        .tab_box ul li {
+            float: left;
+            background: url(https://www.pc6.com/sk14/images//icon.jpg) no-repeat;
+            height: 32px;
+            text-align: center;
+            padding-left: 20px;
+            line-height: 32px;
+            font-size: 12px;
+            margin-left: 10px;
+            margin-bottom: 17px;
+        }
+        
+        .tab_box ul li a {
+            display: block;
+            background: url(https://www.pc6.com/sk14/images//icon.jpg) right 0 no-repeat;
+            padding-right: 20px;
+            white-space: nowrap;
+        }
+        
+        .tab_box s,
+        #hj s {
+            display: block;
+            background: url(https://www.pc6.com/sk14/images//line_d.jpg) 0 15px no-repeat;
+        }
+        
+        .moreTab {
+            display: block;
+            width: 48px;
+            height: 26px;
+            border: solid #C6C6C6 1px;
+            padding-left: 18px;
+            margin: 0 auto;
+            background: #fff url(images/tv.gif) 45px -162px no-repeat;
+        }
+        
+        #tj b,
+        #tj b u {
+            display: block;
+        }
+        
+        #tj b {
+            height: 32px;
+            border-bottom: 1px solid #ccc;
+        }
+        
+        #tj b u {
+            width: 100px;
+            height: 32px;
+            line-height: 32px;
+            float: left;
+            text-align: center;
+            font-size: 14px;
+            cursor: pointer;
+        }
+        
+        #tj u.cur {
+            background: #59C46C;
+            color: #fff;
+        }
+        
+        #tj img {
+            width: 70px;
+            height: 70px;
+            padding: 1px 5px;
+        }
+        
+        #tj li {
+            width: 100%;
+            height: 82px;
+            border-right: 1px solid #EDEDED;
+            border-bottom: 1px solid #EDEDED;
+            float: left;
+            position: relative;
+            padding: 15px 10px 10px 15px;
+            line-height: 20px;
+            color: #999;
+        }
+        
+        #tj li a {
+            width: 80px;
+            height: 75px;
+            background: white;
+            display: block;
+            position: relative;
+            float: left;
+            margin-right: 10px;
+        }
+        
+        #tj li a font {
+            display: block;
+            width: 80px;
+            height: 75px;
+            background: url(https://www.pc6.com/sk14/images//cover.png) no-repeat;
+            cursor: pointer;
+            left: 0;
+            position: absolute;
+            top: 0;
+        }
+        
+        #tj li strong a {
+            margin: 0;
+            width: 112px;
+            height: 18px;
+            overflow: hidden;
+            margin: 5px 0;
+            font-size: 14px;
+            color: #000;
+        }
+        
+        #tj li span {
+            line-height: 13px;
+            overflow: hidden;
+        }
+        
+        .lstar0,
+        .lstar1,
+        .lstar2,
+        .lstar3,
+        .lstar4,
+        .lstar5,
+        .lstar6 {
+            background: url(https://www.pc6.com/sk14/images//litterStar.png) no-repeat;
+            width: 84px;
+            height: 13px;
+            display: inline-block;
+        }
+        
+        .lstar1 {
+            background-position: 0 -26px;
+        }
+        
+        .lstar2 {
+            background-position: 0 -52px;
+        }
+        
+        .lstar3 {
+            background-position: 0 -78px;
+        }
+        
+        .lstar4 {
+            background-position: 0 -104px;
+        }
+        
+        .lstar5,
+        .lstar6 {
+            background-position: 0 -130px;
+        }
+        
+        .left {
+            width: 700px;
+            float: none;
+        }
+        
+        #tj ul {
+            display: none;
+        }
+        
+        #tj ul.on {
+            display: block;
+            border-left: 1px solid #e8e8e8;
+        }
+        
+        #tj li p {
+            display: none;
+        }
+        
+        #tj li:hover p {
+            display: block;
+            width: 202px;
+            border: 1px solid #59C46C;
+            border-left-width: 2px;
+            position: absolute;
+            left: 100px;
+            top: 14px;
+            z-index: 99;
+            background: #fff;
+            padding: 0 13px 6px 13px;
+        }
+        
+        #tj li:hover p strong a {
+            width: 200px;
+            height: 30px;
+            line-height: 30px;
+            border-bottom: 1px solid #e8e8e8;
+            overflow: hidden;
+        }
+        
+        #tj li:hover p s a {
+            height: 22px;
+            line-height: 22px;
+            margin: 5px 0;
+            background: #59C46C;
+            color: #fff;
+            text-align: center;
+            float: none;
+        }
+        
+        #tj li:hover {
+            z-index: 10;
+        }
+        
+        #zt {
+            margin: 10px 0;
+            position: relative;
+        }
+        
+        #zt p {
+            border: 1px solid #f0f0f0;
+            padding-bottom: 20px;
+        }
+        
+        #zt p a,
+        #zt a img {
+            display: block;
+            width: 205px;
+            height: 103px;
+        }
+        
+        #zt p a,
+        #hj p a {
+            height: 124px;
+            float: left;
+            text-align: center;
+            margin: 15px 0 0 20px;
+            overflow: hidden;
+        }
+        
+        #zt s a {
+            float: right;
+            position: absolute;
+            right: 0;
+            top: 6px;
+            font-size: 12px;
+            margin-right: 10px;
+        }
+        
+        .right {
+            float: right;
+            width: 270px;
+        }
+        
+        .game {
+            margin-bottom: 10px;
+        }
+        
+        .game b,
+        #zt b,
+        #hot b font {
+            display: block;
+            font-size: 16px;
+            height: 32px;
+            line-height: 32px;
+            width: 100px;
+            border-bottom: 2px solid #59C46C;
+        }
+        
+        .game span,
+        .game strong,
+        .game u,
+        .game font {
+            display: block;
+        }
+        
+        .game s {
+            display: block;
+            position: relative;
+            font-size: 12px;
+            position: relative;
+            border-top: 1px solid #e8e8e8;
+            padding-left: 20px;
+        }
+        
+        .game s.f u {
+            display: none;
+        }
+        
+        .game s.f span {
+            display: block;
+        }
+        
+        .game span {
+            display: none;
+            line-height: 20px;
+            overflow: hidden;
+            padding: 12px 0 12px 0;
+        }
+        
+        .game span a {
+            height: 74px;
+        }
+        
+        .game strong {
+            font-size: 16px;
+            height: 18px;
+            line-height: 18px;
+            overflow: hidden;
+            margin-bottom: 8px;
+        }
+        
+        .game u {
+            height: 37px;
+            line-height: 37px;
+            overflow: hidden;
+            font-size: 13px;
+        }
+        
+        .game u {
+            color: #888;
+        }
+        
+        .game u em {
+            float: right;
+            color: #888;
+            margin-left: 5px;
+            font-size: 12px;
+        }
+        
+        .game span img {
+            width: 50px;
+            height: 50px;
+            margin: 0 8px 0 0;
+            float: left;
+        }
+        
+        .game span em a {
+            display: block;
+            width: 42px;
+            height: 20px;
+            line-height: 20px;
+            background: #FF8400;
+            color: white;
+            font-size: 12px;
+            text-align: center;
+            overflow: hidden;
+            margin: 3px 0 0 0;
+        }
+        
+        .game font {
+            width: 14px;
+            height: 14px;
+            line-height: 14px;
+            text-align: center;
+            position: absolute;
+            left: 0;
+            top: 12px;
+            color: #666;
+        }
+        
+        .game .orgNum font {
+            background: #FF8400;
+            color: #fff;
+        }
