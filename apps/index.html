@@ -156,6 +156,8 @@ $(function(){
 	var u = navigator.userAgent, app = navigator.appVersion; 
 	var isAndroid = u.indexOf('Android') > -1 || u.indexOf('Linux') > -1; //android终端或者uc浏览器 
 	var isiOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/); //ios终端 
+	console.log("isAndroid="+isAndroid);
+	console.log("isiOS="+isiOS);
 	if(isiOS){
 		$(".ios").removeClass("hide");
 		$("#cp_apple_id").click(function(){
@@ -166,18 +168,13 @@ $(function(){
 			copyTXT("apple_pwd");
 		});
 	}
-	if(isAndroid){
-		$("a").click(function(){
-			var url = $(this).attr("apk-url");
-			window.location.href = url;
-			return false;
-		});
-	}
+	
 
 	$.ajax({
 		url: apiUrl+'/api/app/configs',
-		type: 'POST',contentType:"application/json",
-		data: JSON.stringify( {"key":"sys_common_apps"}),
+		type: 'POST',
+		contentType:"application/json",
+		data: JSON.stringify({"key":"sys_common_apps"}),
 		success: function (e) {
 			var data = JSON.parse(e.data[0].value);
 			var $mainmenu = $("#mainmenu");
@@ -185,11 +182,18 @@ $(function(){
 				app = data[i];
 				$mainmenu.append("<li><a href='"+app.ios+"' apk-url='"+app.android+"'><img src='"+app.img+"' /><span>"+app.name+"</span></a></li>");
 			}
+			
+			if(isAndroid){
+				$("a").click(function(){
+					var url = $(this).attr("apk-url");
+					window.location.href = url;
+					return false;
+				});
+			}
 		}
 	});
 });
 function getAppleId(){
-
 	$.ajax({
 		url: apiUrl+'/api/app/configs',
 		type: 'POST',contentType:"application/json",
